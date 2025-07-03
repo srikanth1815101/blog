@@ -1,5 +1,4 @@
 baseURL = "https://blog.csrgo.com"
-publishDir = "docs" 
 languageCode = "en-us"
 title = "CSRGO Blog"
 
