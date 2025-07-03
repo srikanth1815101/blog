@@ -1,4 +1,5 @@
-baseURL = "https://blog.csrgo.com/"
+baseURL = "https://srikanth1815101.github.io/blog"
+publishDir = "docs" 
 languageCode = "en-us"
 title = "CSRGO Blog"
 
