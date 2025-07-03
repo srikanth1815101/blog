@@ -4,7 +4,7 @@ A completely custom, modern, responsive, and user-friendly Hugo blog theme built
 
 ## ✨ Features
 
-- **🎨 Modern Design**: Clean, minimal, and professional design with dark/light mode support
+- **🎨 Modern Design** : Clean, minimal, and professional design with dark/light mode support
 - **📱 Fully Responsive**: Mobile-first design that works perfectly on all devices
 - **⚡ Fast Performance**: Built with Hugo for lightning-fast static site generation
 - **🎯 SEO Optimized**: Proper meta tags, structured data, and semantic HTML
