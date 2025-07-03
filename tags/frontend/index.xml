@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Frontend on CSRGO Blog</title><link>https://blog.csrgo.com/tags/frontend/</link><description>Recent content in Frontend on CSRGO Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 20 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.csrgo.com/tags/frontend/index.xml" rel="self" type="application/rss+xml"/><item><title>Mastering React: Complete Roadmap for 2024</title><link>https://blog.csrgo.com/posts/mastering-react-roadmap-2024/</link><pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate><guid>https://blog.csrgo.com/posts/mastering-react-roadmap-2024/</guid><description>&lt;h1 id="mastering-react-complete-roadmap-for-2024">Mastering React: Complete Roadmap for 2024&lt;/h1>
+&lt;p>React continues to dominate the frontend development landscape in 2024. Whether you&amp;rsquo;re a complete beginner or looking to level up your skills, this comprehensive roadmap will guide you through everything you need to know to become a React expert.&lt;/p>
+&lt;h2 id="prerequisites-what-you-need-to-know-first">Prerequisites: What You Need to Know First&lt;/h2>
+&lt;p>Before diving into React, ensure you have a solid foundation in:&lt;/p>
+&lt;h3 id="javascript-fundamentals">JavaScript Fundamentals&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>ES6+ Features&lt;/strong>: Arrow functions, destructuring, spread/rest operators&lt;/li>
+&lt;li>&lt;strong>Async Programming&lt;/strong>: Promises, async/await, callbacks&lt;/li>
+&lt;li>&lt;strong>DOM Manipulation&lt;/strong>: Understanding how browsers render content&lt;/li>
+&lt;li>&lt;strong>Event Handling&lt;/strong>: User interactions and browser events&lt;/li>
+&lt;/ul>
+&lt;h3 id="html--css">HTML &amp;amp; CSS&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Semantic HTML&lt;/strong>: Proper structure and accessibility&lt;/li>
+&lt;li>&lt;strong>CSS Flexbox &amp;amp; Grid&lt;/strong>: Modern layout techniques&lt;/li>
+&lt;li>&lt;strong>Responsive Design&lt;/strong>: Mobile-first approach&lt;/li>
+&lt;li>&lt;strong>CSS-in-JS&lt;/strong>: Understanding styling in JavaScript&lt;/li>
+&lt;/ul>
+&lt;h2 id="phase-1-react-fundamentals-2-3-weeks">Phase 1: React Fundamentals (2-3 weeks)&lt;/h2>
+&lt;h3 id="1-getting-started-with-react">1. Getting Started with React&lt;/h3>
+&lt;p>Start with the basics of React components and JSX:&lt;/p></description></item></channel></rss>
