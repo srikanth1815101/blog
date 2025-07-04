@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: srikanth1815101/blog
+  name: git-gateway
   branch: main
 
 media_folder: "static/images/uploads"
