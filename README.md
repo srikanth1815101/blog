@@ -1,6 +1,6 @@
 # CSRGO Blog - Modern Hugo Theme
 
-A completely custom, modern, responsive, and user-friendly Hugo blog theme built from scratch. Perfect for tech-focused blogs with AI tools, development roadmaps, and cutting-edge technology content.
+A completely custom,modern, responsive, and user-friendly Hugo blog theme built from scratch. Perfect for tech-focused blogs with AI tools, development roadmaps, and cutting-edge technology content.
 
 ## ✨ Features
 
