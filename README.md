@@ -130,9 +130,10 @@ The theme uses Tailwind CSS via CDN. You can customize the design by:
 ### GitHub Pages
 
 1. **Push your code to GitHub**
-2. **Enable GitHub Pages** in your repository settings
-3. **Set the source** to your main branch
-4. **Add your custom domain** (if using CNAME)
+2. **GitHub Actions will automatically build and deploy your site to the `gh-pages` branch**
+3. **Enable GitHub Pages** in your repository settings
+4. **Set the source** to the `gh-pages` branch, root folder
+5. **Add your custom domain** (if using CNAME)
 
 ### Netlify
 
