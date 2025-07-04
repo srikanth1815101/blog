@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Description }}{{ end }}">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in',
+                        'slide-up': 'slideUp 0.7s cubic-bezier(.39,.575,.565,1.000)'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: 0 },
+                            '100%': { opacity: 1 }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(40px)', opacity: 0 },
+                            '100%': { transform: 'translateY(0)', opacity: 1 }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        html { font-family: 'Inter', system-ui, sans-serif; }
+        .prose {
+            max-width: 65ch;
+            margin: 0 auto;
+        }
+        
+        .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+            font-weight: 600;
+            line-height: 1.25;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .prose h1 { font-size: 2.25rem; }
+        .prose h2 { font-size: 1.875rem; }
+        .prose h3 { font-size: 1.5rem; }
+        .prose h4 { font-size: 1.25rem; }
+        
+        .prose p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+        }
+        
+        .prose code {
+            background: rgb(243 244 246);
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+            font-size: 0.95em;
+            color: rgb(17 24 39); /* dark text for inline code in light mode */
+        }
+        .dark .prose code {
+            background: rgb(55 65 81);
+            color: rgb(243 244 246); /* light text for inline code in dark mode */
+        }
+        .prose pre {
+            background: rgb(17 24 39);
+            color: rgb(243 244 246);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        .prose pre code {
+            background: transparent;
+            color: rgb(243 244 246);
+            padding: 0;
+        }
+        .dark .prose pre {
+            background: rgb(17 24 39);
+            color: rgb(243 244 246);
+        }
+        .dark .prose pre code {
+            color: rgb(243 244 246);
+        }
+        
+        .prose blockquote {
+            border-left: 4px solid rgb(59 130 246);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: rgb(107 114 128);
+        }
+        
+        .prose ul, .prose ol {
+            margin: 1.25rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .prose li {
+            margin: 0.5rem 0;
+        }
+        
+        .prose a {
+            color: rgb(59 130 246);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+        
+        .prose a:hover {
+            color: rgb(37 99 235);
+        }
+        
+        /* Animated background gradient */
+        body::before {
+            content: '';
+            position: fixed;
+            z-index: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(120deg, #dbeafe 0%, #f0abfc 100%);
+            opacity: 0.12;
+            pointer-events: none;
+            transition: background 0.5s;
+        }
+        .dark body::before {
+            background: linear-gradient(120deg, #0f172a 0%, #6366f1 100%);
+        }
+    </style>
+</head>
+<body class="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen">
+    {{ partial "header.html" . }}
+    <main class="relative z-10">
+        {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . }}
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html> 

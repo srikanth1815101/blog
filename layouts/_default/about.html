@@ -1,0 +1,84 @@
+{{ define "main" }}
+<!-- HERO SECTION -->
+<section class="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-b from-white-50 via-fuchsia-50 to-blue-50 dark:from-gray-900 dark:to-blue-900 py-20 animate-fade-in-up">
+  <div class="w-full max-w-2xl text-center">
+    <img src="/logo.png" alt="CSRGO Blog Logo" class="mx-auto mb-6 rounded-2xl shadow-lg w-24 h-24 object-contain animate-zoom-in" />
+    <h1 class="text-5xl font-extrabold mb-4 bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent animate-gradient-sheen animate-hue-rotate">
+      Welcome to CSRGO Blog
+    </h1>
+    <p class="text-xl text-gray-700 dark:text-gray-200 mb-6 max-w-2xl mx-auto animate-fade-in-up animate-delay-200">
+      <span class="inline-flex items-center gap-2"><i data-lucide="sparkles" class="w-6 h-6 text-blue-500 dark:text-fuchsia-400 animate-bounce"></i> Your guide to AI, dev roadmaps, and tech innovation.</span>
+    </p>
+    <div class="flex flex-wrap justify-center gap-4 mt-6 animate-fade-in-up animate-delay-300">
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-fuchsia-100 dark:from-blue-900 dark:to-fuchsia-900 text-blue-700 dark:text-fuchsia-200 text-sm font-semibold shadow"><i data-lucide="cpu" class="w-4 h-4"></i> AI Tools</span>
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-pink-100 to-blue-100 dark:from-pink-900 dark:to-blue-900 text-pink-700 dark:text-blue-200 text-sm font-semibold shadow"><i data-lucide="map" class="w-4 h-4"></i> Dev Roadmaps</span>
+      <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-fuchsia-100 to-blue-100 dark:from-fuchsia-900 dark:to-blue-900 text-fuchsia-700 dark:text-blue-200 text-sm font-semibold shadow"><i data-lucide="rocket" class="w-4 h-4"></i> Tech Trends</span>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION CARD -->
+<section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in-up animate-delay-200">
+  <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 md:p-12 flex flex-col items-center text-center border border-gray-100 dark:border-gray-800">
+    <div class="mb-4">
+      <i data-lucide="target" class="w-10 h-10 text-blue-500 dark:text-fuchsia-400 animate-fade-in-up"></i>
+    </div>
+    <h2 class="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent inline-block">Our Mission</h2>
+    <p class="text-lg text-gray-600 dark:text-gray-300 mb-2">We make technology accessible, practical, and inspiring for everyone.</p>
+    <ul class="text-gray-500 dark:text-gray-400 text-base space-y-2 mt-4 text-left max-w-md mx-auto">
+      <li class="flex items-center gap-2"><i data-lucide="lightbulb" class="w-5 h-5 text-blue-400 dark:text-fuchsia-400"></i> Demystify AI & modern development</li>
+      <li class="flex items-center gap-2"><i data-lucide="book-open" class="w-5 h-5 text-blue-400 dark:text-fuchsia-400"></i> Actionable guides, roadmaps, and cheat sheets</li>
+      <li class="flex items-center gap-2"><i data-lucide="star" class="w-5 h-5 text-blue-400 dark:text-fuchsia-400"></i> Curated tools & resources for devs and techies</li>
+    </ul>
+  </div>
+</section>
+
+<!-- AUTHOR CARD -->
+<section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in-up animate-delay-300">
+  <div class="bg-gradient-to-r from-blue-50 via-fuchsia-50 to-pink-50 dark:from-gray-900 dark:to-blue-900 rounded-2xl shadow-lg p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 border border-gray-100 dark:border-gray-800">
+    <div class="flex-shrink-0">
+      <img src="/logo.png" alt="CSRGO Avatar" class="w-24 h-24 rounded-full border-4 border-blue-200 dark:border-fuchsia-700 shadow-md mx-auto animate-zoom-in" />
+    </div>
+    <div class="flex-1 text-center md:text-left">
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 flex items-center gap-2 justify-center md:justify-start"><i data-lucide="user" class="w-5 h-5 text-blue-500 dark:text-fuchsia-400"></i> About the Author</h3>
+      <p class="text-gray-700 dark:text-gray-300 mb-3">Hi! I'm <span class="font-bold">CSRGO</span>, a passionate developer, tech writer, and lifelong learner. I created this blog to help you navigate the fast-changing world of technology.</p>
+      <ul class="text-gray-500 dark:text-gray-400 text-sm mb-4">
+        <li><b>Background:</b> Software engineer, AI enthusiast, open-source contributor</li>
+        <li><b>Interests:</b> AI, web development, productivity tools, teaching</li>
+      </ul>
+      <div class="flex justify-center md:justify-start gap-4 mt-2">
+        <a href="https://github.com/csrgo" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-600 dark:hover:text-fuchsia-400 transition"><i data-lucide="github" class="w-6 h-6"></i></a>
+        <a href="https://linkedin.com/in/csrgo" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-600 dark:hover:text-fuchsia-400 transition"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+        <a href="https://twitter.com/csrgo" target="_blank" rel="noopener" class="text-gray-400 hover:text-blue-600 dark:hover:text-fuchsia-400 transition"><i data-lucide="twitter" class="w-6 h-6"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT CARD -->
+<section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in-up animate-delay-400">
+  <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 text-center border border-gray-100 dark:border-gray-800">
+    <div class="mb-4">
+      <i data-lucide="mail" class="w-10 h-10 text-blue-500 dark:text-fuchsia-400 animate-fade-in-up"></i>
+    </div>
+    <h2 class="text-2xl font-bold mb-2 bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent inline-block">Get in Touch</h2>
+    <p class="text-gray-700 dark:text-gray-300 mb-4">Have questions, suggestions, or want to collaborate? Reach out anytime!</p>
+    <a href="mailto:hello@csrgo.com" class="inline-block px-8 py-3 bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white font-bold rounded-xl shadow-lg hover:scale-105 transition-all duration-300">Contact Me</a>
+  </div>
+</section>
+
+<style>
+@keyframes gradientSheen { 0%{background-position:0% 50%;} 100%{background-position:100% 50%;} }
+.animate-gradient-sheen { background-size:200% 200%; animation:gradientSheen 4s linear infinite alternate; }
+@keyframes hueRotate { 0%{filter:hue-rotate(0deg);} 100%{filter:hue-rotate(360deg);} }
+.animate-hue-rotate { animation:hueRotate 12s linear infinite; }
+@keyframes fadeInUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
+.animate-fade-in-up { animation: fadeInUp 1s cubic-bezier(.39,.575,.565,1.000) both; }
+@keyframes zoomIn { 0% { opacity: 0; transform: scale(0.96); } 100% { opacity: 1; transform: scale(1); } }
+.animate-zoom-in { animation: zoomIn 1.2s cubic-bezier(.39,.575,.565,1.000) both; }
+@media (max-width: 640px) {
+  .text-5xl { font-size: 2.2rem; }
+  .text-2xl { font-size: 1.3rem; }
+}
+</style>
+{{ end }} 
