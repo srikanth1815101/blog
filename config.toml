@@ -33,4 +33,12 @@ title = "CSRGO Blog"
 
 [taxonomies]
   tag = "tags"
-  category = "categories" 
+  category = "categories"
+
+[related]
+threshold = 0
+includeNewer = true
+[[related.indices]]
+name = "tags"
+weight = 100
+# Optionally, you can add more indices (e.g., categories) if needed 

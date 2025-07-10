@@ -9,7 +9,7 @@
     <!-- Desktop Nav -->
     <nav class="hidden md:flex gap-8 text-base font-medium ml-auto mr-8">
       {{ $current := .RelPermalink }}
-      {{ $nav := slice (dict "name" "Home" "url" "/") (dict "name" "Blog" "url" "/posts/") (dict "name" "About" "url" "/about/") }}
+      {{ $nav := slice (dict "name" "Home" "url" "/") (dict "name" "Posts" "url" "/posts/") (dict "name" "About" "url" "/about/") }}
       {{ range $nav }}
       <a href="{{ .url }}" class="relative py-2 px-2 transition text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-fuchsia-400 {{ if eq $.RelPermalink .url }}font-bold text-blue-600 dark:text-fuchsia-400{{ end }}">
         {{ .name }}

@@ -1,7 +1,7 @@
 ---
 title: "Mastering React: Complete Roadmap for 2024"
 description: "A comprehensive guide to learning React from beginner to advanced. Follow this roadmap to become a React expert in 2024."
-date: 2024-01-20
+date: 2025-07-10
 author: "CSRGO"
 tags: ["React", "JavaScript", "Frontend", "Web Development", "Roadmap"]
 thumbnail: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop"

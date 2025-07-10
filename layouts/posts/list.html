@@ -13,9 +13,11 @@
               <svg class="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-3.5-3.5"/></svg>
             </div>
             <div class="flex items-center">
-              <button id="filterToggle" type="button" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white shadow-lg hover:scale-105 transition-transform focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <button id="filterToggle" type="button" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white shadow-lg hover:scale-105 transition-transform focus:outline-none focus:ring-2 focus:ring-blue-500 relative">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M6 10h12M8 14h8M10 18h4"/></svg>
+                <span id="filterBadge" class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white text-xs font-bold flex items-center justify-center shadow-lg border-2 border-white dark:border-gray-900 z-10"></span>
               </button>
+              <button id="clearFiltersBtn" type="button" class="ml-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white text-xs font-semibold shadow hover:scale-105 hover:shadow-xl transition-all hidden">Clear</button>
             </div>
           </div>
           <!-- Filter Dropdown/Modal -->
@@ -52,16 +54,16 @@
         </header>
         
         <!-- Posts Grid (all posts, filtered/sorted by JS) -->
-        <div id="postsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"></div>
-        <template id="postCardTemplate">
+        <div id="postsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {{ range .Pages.ByDate.Reverse }}
-          <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col post-card"
-              data-title="{{ .Title | lower }}"
-              data-summary="{{ .Summary | plainify | lower }}"
-              data-tags="{{ delimit .Params.tags "," | lower }}"
-              data-date="{{ .Date.Format "2006-01-02" }}"
-              data-title-sort="{{ .Title | lower }}"
+          <a href="{{ .RelPermalink }}" class="block group post-card max-w-sm w-full mx-auto"
+            data-title="{{ .Title | lower }}"
+            data-summary="{{ .Summary | plainify | lower }}"
+            data-tags="{{ delimit .Params.tags "," | lower }}"
+            data-date="{{ .Date.Format "2006-01-02" }}"
+            data-title-sort="{{ .Title | lower }}"
           >
+          <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col animate-fade-in-up max-w-sm w-full mx-auto">
                {{ if .Params.thumbnail }}
                <div class="aspect-video overflow-hidden">
                    <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
@@ -73,10 +75,8 @@
                        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
                        {{ with .Params.readingTime }}<span class="mx-2">•</span><i data-lucide="clock" class="w-4 h-4 mr-1"></i>{{ . }} min read{{ end }}
                    </div>
-                   <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2">
-                       <a href="{{ .RelPermalink }}" class="transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-600 hover:via-fuchsia-500 hover:to-pink-500 hover:bg-clip-text hover:text-transparent">
-                           {{ .Title }}
-                       </a>
+                   <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2 transition-colors group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:via-fuchsia-500 group-hover:to-pink-500 group-hover:bg-clip-text group-hover:text-transparent">
+                       {{ .Title }}
                    </h3>
                    <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
                        {{ if .Description }}
@@ -87,7 +87,11 @@
                    </p>
                </div>
            </article>
+           </a>
            {{ end }}
+        </div>
+        <!-- Keep the template for JS filter, but it will not be used for initial render -->
+        <template id="postCardTemplate" style="display:none">
         </template>
         <div id="loadMoreWrapper" class="text-center mb-8">
           <button id="loadMoreBtn" class="hidden px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white font-bold shadow hover:scale-105 transition-transform">Load More</button>
@@ -105,7 +109,6 @@
         document.addEventListener('DOMContentLoaded', function() {
           const searchInput = document.getElementById('searchInput');
           const postsGrid = document.getElementById('postsGrid');
-          const postCardTemplate = document.getElementById('postCardTemplate');
           const noResultsMsg = document.getElementById('noResultsMsg');
           // Modal controls
           const filterToggle = document.getElementById('filterToggle');
@@ -117,22 +120,42 @@
           // State
           let tag = '';
           let sort = 'newest';
-          let cards = [];
+          let cards = Array.from(postsGrid.querySelectorAll('.post-card'));
 
-          // Render all posts initially
-          function renderAllPosts() {
-            postsGrid.innerHTML = '';
-            // Get all article nodes from the template
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = postCardTemplate.innerHTML.trim();
-            cards = Array.from(tempDiv.querySelectorAll('.post-card'));
-          }
+          // Hide 'No results' by default
+          noResultsMsg.classList.add('hidden');
 
           // Pagination state
           let shownCount = 0;
           const PAGE_SIZE = 12;
           const loadMoreBtn = document.getElementById('loadMoreBtn');
           const loadMoreWrapper = document.getElementById('loadMoreWrapper');
+
+          // LocalStorage key
+          const FILTER_KEY = 'csrgo_blog_post_filter';
+
+          // Restore filter state from localStorage (if not a reload)
+          if (performance && performance.navigation && performance.navigation.type === 1) {
+            // If reload, clear filter state
+            localStorage.removeItem(FILTER_KEY);
+          } else {
+            const saved = localStorage.getItem(FILTER_KEY);
+            if (saved) {
+              try {
+                const state = JSON.parse(saved);
+                if (state.q) searchInput.value = state.q;
+                if (state.tag) tag = state.tag;
+                if (state.sort) sort = state.sort;
+                if (state.shownCount) shownCount = state.shownCount;
+                if (tagFilterModal) tagFilterModal.value = tag;
+                if (sortSelectModal) sortSelectModal.value = sort;
+              } catch(e) {}
+            }
+          }
+
+          function saveFilterState(q, tag, sort, shownCount) {
+            localStorage.setItem(FILTER_KEY, JSON.stringify({q, tag, sort, shownCount}));
+          }
 
           function showCards(filtered, reset = false) {
             if (reset) {
@@ -154,6 +177,10 @@
             } else {
               loadMoreBtn.classList.add('hidden');
             }
+            // Save state
+            saveFilterState(searchInput.value, tag, sort, shownCount);
+            // Update badge and clear button
+            updateFilterBadge();
             // Re-initialize Lucide icons
             if (window.lucide && window.lucide.createIcons) lucide.createIcons();
           }
@@ -161,9 +188,9 @@
           function filterAndSort(reset = true) {
             const q = (searchInput.value || '').toLowerCase();
             let filtered = cards.filter(card => {
-              const title = card.dataset.title;
-              const summary = card.dataset.summary;
-              const tags = card.dataset.tags;
+              const title = card.dataset.title || (card.querySelector('h3')?.textContent || '').toLowerCase();
+              const summary = card.dataset.summary || (card.querySelector('p')?.textContent || '').toLowerCase();
+              const tags = card.dataset.tags || '';
               let matches = true;
               if (q && !(title.includes(q) || summary.includes(q) || tags.includes(q))) matches = false;
               if (tag && !tags.split(',').includes(tag)) matches = false;
@@ -171,14 +198,16 @@
             });
             // Sort
             filtered.sort((a, b) => {
+              const aDate = a.dataset.date || '';
+              const bDate = b.dataset.date || '';
               if (sort === 'oldest') {
-                return a.dataset.date.localeCompare(b.dataset.date);
+                return aDate.localeCompare(bDate);
               } else if (sort === 'az') {
-                return a.dataset.titleSort.localeCompare(b.dataset.titleSort);
+                return (a.dataset.titleSort || '').localeCompare(b.dataset.titleSort || '');
               } else if (sort === 'za') {
-                return b.dataset.titleSort.localeCompare(a.dataset.titleSort);
+                return (b.dataset.titleSort || '').localeCompare(a.dataset.titleSort || '');
               } else { // newest
-                return b.dataset.date.localeCompare(a.dataset.date);
+                return bDate.localeCompare(aDate);
               }
             });
             // Hide all
@@ -196,6 +225,16 @@
             loadMoreBtn.filtered = filtered;
           }
 
+          // On load, show only PAGE_SIZE cards (or restore from state)
+          cards.forEach(card => card.style.display = 'none');
+          if (shownCount > 0) {
+            filterAndSort(true);
+          } else {
+            showCards(cards, true);
+          }
+          noResultsMsg.classList.add('hidden');
+          loadMoreBtn.filtered = cards;
+
           loadMoreBtn.addEventListener('click', function() {
             showCards(loadMoreBtn.filtered, false);
           });
@@ -204,27 +243,57 @@
           filterToggle.addEventListener('click', () => {
             filterModal.classList.remove('hidden');
             tagFilterModal.value = tag;
-            sortSelectModal.value = sort;
           });
-          closeFilter.addEventListener('click', () => {
-            filterModal.classList.add('hidden');
-          });
-          filterModal.addEventListener('click', (e) => {
-            if (e.target === filterModal) filterModal.classList.add('hidden');
-          });
-          // Apply filter
+          closeFilter.addEventListener('click', () => filterModal.classList.add('hidden'));
           applyFilter.addEventListener('click', () => {
-            tag = tagFilterModal.value.toLowerCase();
+            tag = tagFilterModal.value;
             sort = sortSelectModal.value;
             filterModal.classList.add('hidden');
             filterAndSort(true);
+            updateFilterBadge();
           });
-          // Search input
-          searchInput.addEventListener('input', () => filterAndSort(true));
-
-          // Initial render
-          renderAllPosts();
-          filterAndSort(true);
+          // Show/hide filter badge and clear button
+          function updateFilterBadge() {
+            const badge = document.getElementById('filterBadge');
+            const clearBtn = document.getElementById('clearFiltersBtn');
+            let count = 0;
+            const q = searchInput.value.trim();
+            const isTag = tag && tag !== '';
+            const isSort = sort && sort !== 'newest';
+            if (q) count++;
+            if (isTag) count++;
+            if (isSort) count++;
+            if (count > 0) {
+              badge.textContent = count;
+              badge.classList.remove('hidden');
+              clearBtn.classList.remove('hidden');
+            } else {
+              badge.classList.add('hidden');
+              clearBtn.classList.add('hidden');
+            }
+          }
+          // Clear filters button
+          document.getElementById('clearFiltersBtn').addEventListener('click', function() {
+            searchInput.value = '';
+            tag = '';
+            sort = 'newest';
+            if (tagFilterModal) tagFilterModal.value = '';
+            if (sortSelectModal) sortSelectModal.value = 'newest';
+            filterAndSort(true);
+            updateFilterBadge();
+          });
+          // Call updateFilterBadge on filter changes
+          searchInput.addEventListener('input', () => { filterAndSort(true); updateFilterBadge(); });
+          // Also update badge on page load
+          updateFilterBadge();
+        });
+        </script>
+        <script>
+        // Clear filter state when navigating away from posts page (except for browser back/forward)
+        window.addEventListener('pagehide', function(e) {
+          if (!e.persisted) {
+            localStorage.removeItem('csrgo_blog_post_filter');
+          }
         });
         </script>
     </div>
