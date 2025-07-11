@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Demo on CSRGO Blog</title><link>https://blog.csrgo.com/tags/demo/</link><description>Recent content in Demo on CSRGO Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 06 Jul 2024 12:00:00 +0000</lastBuildDate><atom:link href="https://blog.csrgo.com/tags/demo/index.xml" rel="self" type="application/rss+xml"/><item><title>Demo: All Supported Elements</title><link>https://blog.csrgo.com/posts/demo-all-elements/</link><pubDate>Sat, 06 Jul 2024 12:00:00 +0000</pubDate><guid>https://blog.csrgo.com/posts/demo-all-elements/</guid><description>&lt;h1 id="demo-all-supported-elements">Demo: All Supported Elements&lt;/h1>
+&lt;p>Welcome to the demo post! This article showcases all the elements supported by the blog, including headings, lists, tables, blockquotes, code, images, callouts, footnotes, and more.&lt;/p>
+&lt;h2 id="headings">Headings&lt;/h2>
+&lt;h1 id="h1-heading">H1 Heading&lt;/h1>
+&lt;h2 id="h2-heading">H2 Heading&lt;/h2>
+&lt;h3 id="h3-heading">H3 Heading&lt;/h3>
+&lt;h4 id="h4-heading">H4 Heading&lt;/h4>
+&lt;h5 id="h5-heading">H5 Heading&lt;/h5>
+&lt;h6 id="h6-heading">H6 Heading&lt;/h6>
+&lt;h2 id="paragraphs--emphasis-">Paragraphs &amp;amp; Emphasis :&lt;/h2>
+&lt;p>This is a regular paragraph. You can use &lt;em>italic&lt;/em>, &lt;strong>bold&lt;/strong>, or &lt;em>&lt;strong>bold italic&lt;/strong>&lt;/em> text.&lt;/p>
+&lt;h2 id="lists">Lists&lt;/h2>
+&lt;ul>
+&lt;li>Unordered list item 1&lt;/li>
+&lt;li>Unordered list item 2
+&lt;ul>
+&lt;li>Nested unordered item 2.1&lt;/li>
+&lt;li>Nested unordered item 2.2&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Unordered list item 3&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>Ordered list item 1&lt;/li>
+&lt;li>Ordered list item 2
+&lt;ol>
+&lt;li>Nested ordered item 2.1&lt;/li>
+&lt;li>Nested ordered item 2.2&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Ordered list item 3&lt;/li>
+&lt;/ol>
+&lt;h2 id="links--images">Links &amp;amp; Images&lt;/h2>
+&lt;p>&lt;a href="https://csrgo.com">Visit CSRGO Blog&lt;/a>&lt;/p></description></item></channel></rss>
