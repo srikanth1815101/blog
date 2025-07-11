@@ -81,7 +81,7 @@ GitHub Copilot and Microsoft 365 Copilot are designed to help you code faster, w
 Midjourney takes text prompts and turns them into stunning, cinematic images. It’s a favorite among creators, designers, and storytellers for its rich, emotional art style.
 
 > **Prompt Example:** “A cyberpunk city glowing in the rain, night time, dramatic lighting”
->
+
 > **Use It For:** YouTube thumbnails, book covers, moodboards, product visuals
 
 - - -
