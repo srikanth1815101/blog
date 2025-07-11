@@ -22,6 +22,11 @@ title = "CSRGO Blog"
     weight = 2
 
 [markup]
+  [markup.goldmark]
+    [markup.renderer]
+      unsafe = true
+    [markup.extensions]
+      emoji = true
   [markup.highlight]
     style = "github-dark"
     lineNos = true

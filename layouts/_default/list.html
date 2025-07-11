@@ -2,7 +2,7 @@
 <!-- HEADER (handled in baseof.html) -->
 
 <!-- HERO SECTION (full-screen, centered, responsive, no cut-off text) -->
-<section class="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white-50 via-fuchsia-50 to-blue-50 dark:from-gray-900 dark:to-blue-900 pt-8 pb-8">
+<section class="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white-50 via-fuchsia-50 to-blue-50 dark:from-gray-900 dark:to-blue-900 pt-4 pb-8">
   <div class="w-full max-w-7xl mx-auto px-4 md:px-8 text-center">
     <h1 class="text-5xl sm:text-6xl md:text-8xl mb-4 leading-[1.1] tracking-tight">
       <span class="font-black bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent animate-gradient-sheen animate-hue-rotate" style="text-shadow: 2px 2px 6px rgba(60,60,60,0.18);">CSRGO</span>
@@ -28,8 +28,13 @@
           {{ end }}
         {{ end }}
       {{ end }}
-      {{ range first 20 ($.Scratch.Get "orderedTags") }}
-        <a href="/tags/{{ . | urlize }}/" class="inline-block px-5 py-2 rounded-md text-sm font-bold border-2 bg-transparent border-gradient-to-r from-fuchsia-500 to-blue-500 text-gray-900 dark:text-white hover:shadow-lg hover:border-4 transition-all duration-200" style="border-image: linear-gradient(90deg, #d946ef, #3b82f6) 1;">{{ . }}</a>
+      {{ $maxTags := 20 }}
+      <script>
+        // This script is only for progressive enhancement; Hugo can't do server-side device detection.
+        // The server will render 20 tags, but we can hide extra tags on mobile with CSS.
+      </script>
+      {{ range $i, $tag := first 20 ($.Scratch.Get "orderedTags") }}
+        <a href="/tags/{{ $tag | urlize }}/" class="hero-tag tag-{{ add $i 1 }} inline-block px-5 py-2 rounded-md text-sm font-bold border-2 bg-transparent border-gradient-to-r from-fuchsia-500 to-blue-500 text-gray-900 dark:text-white hover:shadow-lg hover:border-4 transition-all duration-200" style="border-image: linear-gradient(90deg, #d946ef, #3b82f6) 1;">{{ $tag }}</a>
       {{ end }}
     </div>
     <div class="mb-10">
@@ -119,5 +124,18 @@
   .animate-gradient-sheen { background-size:200% 200%; animation:gradientSheen 4s linear infinite alternate; }
   @keyframes hueRotate { 0%{filter:hue-rotate(0deg);} 100%{filter:hue-rotate(360deg);} }
   .animate-hue-rotate { animation:hueRotate 12s linear infinite; }
+  @media (max-width: 640px) {
+    .hero-tag {
+      font-size: 0.75rem;
+      padding: 0.18rem 0.55rem;
+    }
+    .hero-tag.tag-16,
+    .hero-tag.tag-17,
+    .hero-tag.tag-18,
+    .hero-tag.tag-19,
+    .hero-tag.tag-20 {
+      display: none !important;
+    }
+  }
 </style>
 {{ end }} 
