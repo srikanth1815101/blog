@@ -1,5 +1,5 @@
 ---
-title: Top 10 AIs You Must Know About in 2025 🔥🤖
+title: Top 10 AIs You Must Know About in 2025
 description: Artificial Intelligence (AI) has exploded in both capability and
   popularity. From text generation to coding, design, and even video creation —
   AI is reshaping how we work, learn, and create. In 2025, several AI platforms
