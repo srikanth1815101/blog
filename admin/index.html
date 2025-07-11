@@ -1,126 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Content Manager | CSRGO Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', system-ui, sans-serif;
-      background: linear-gradient(120deg, #f0f4fc 0%, #f9e6fa 100%);
-      min-height: 100vh;
-    }
-    .admin-center {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .admin-card {
-      background: #fff;
-      border-radius: 1.2rem;
-      box-shadow: 0 4px 32px 0 rgba(60,60,60,0.10);
-      padding: 2.5rem 2rem 2rem 2rem;
-      max-width: 350px;
-      width: 100%;
-      text-align: center;
-      margin-bottom: 2rem;
-      transition: box-shadow 0.2s;
-    }
-    .admin-card h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin: 0 0 0.5rem 0;
-      background: linear-gradient(90deg, #3b82f6, #a21caf, #ec4899);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.01em;
-    }
-    .admin-card p {
-      color: #6b7280;
-      font-size: 1.05rem;
-      margin: 0 0 1.5rem 0;
-      font-weight: 500;
-    }
-    .admin-loader {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 60px;
-      margin-bottom: 0.5rem;
-    }
-    .lds-dual-ring {
-      display: inline-block;
-      width: 48px;
-      height: 48px;
-    }
-    .lds-dual-ring:after {
-      content: " ";
-      display: block;
-      width: 40px;
-      height: 40px;
-      margin: 4px;
-      border-radius: 50%;
-      border: 6px solid #a21caf;
-      border-color: #a21caf transparent #3b82f6 transparent;
-      animation: lds-dual-ring 1.2s linear infinite;
-    }
-    @keyframes lds-dual-ring {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    @media (max-width: 600px) {
-      .admin-card { padding: 1.5rem 0.5rem; }
-      .admin-card h1 { font-size: 1.3rem; }
-    }
-  </style>
-</head>
-<body>
-  <div class="admin-center">
-    <div class="admin-card">
-      <h1>Content Manager</h1>
-      <p>Sign in to manage your blog content</p>
-      <div class="admin-loader" id="admin-loader">
-        <div class="lds-dual-ring"></div>
-      </div>
-    </div>
-  </div>
-  <!-- Netlify Identity Widget -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <!-- Netlify CMS -->
-  <script src="https://unpkg.com/netlify-cms@^2.10.192/dist/netlify-cms.js"></script>
-  <script>
-    window.CMS_MANUAL_INIT = true;
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.reload();
-          });
-        }
-      });
-      window.netlifyIdentity.init();
-    }
-  </script>
-  <script>
-    // Hide loader and start CMS
-    window.addEventListener('DOMContentLoaded', function() {
-      if (window.CMS) {
-        document.getElementById('admin-loader').style.display = 'none';
-        CMS.init();
-      } else {
-        setTimeout(function() {
-          document.getElementById('admin-loader').style.display = 'none';
-        }, 3000);
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>CSRGO Blog | Admin</title>
+  </head>
+  <body>
+    
+    <!-- Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.10.192/dist/netlify-cms.js"></script>
+
+    <script>
+      // Ensure manual init for Netlify Identity
+      window.CMS_MANUAL_INIT = true;
+
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.reload();
+            });
+          }
+        });
+        window.netlifyIdentity.init();
       }
-    });
-  </script>
-</body>
-</html> 
+    </script>
+    <script>
+      // Now CMS starts safely
+      CMS.init();
+    </script>
+    <style>
+    html, body {
+      background: linear-gradient(to bottom, #fdf4ff 0%, #f3e8ff 50%, #dbeafe 100%);
+    }
+    </style>  
+  </body>
+</html>
