@@ -51,23 +51,17 @@ OpenAI’s browser would be **active and intelligent**. It will help:
 
 This is not just a tech experiment. It could be a major leap in how everyday users, students, professionals, and creators use the internet.
 
-- - -
-
 ### For Students
 
 * Summarize online textbooks or research papers in seconds
 * Ask for clarification on difficult topics while browsing
 * Prepare quick notes or exam guides while reading online content
 
-- - -
-
 ### For Professionals
 
 * Extract key data from reports
 * Automatically generate meeting notes from research
 * Compare tools, software, or competitors without switching tabs
-
-- - -
 
 ### For Creators and Writers
 
@@ -81,8 +75,6 @@ This is not just a tech experiment. It could be a major leap in how everyday use
 
 Like all powerful tools, AI browsers come with their own risks and challenges.
 
-- - -
-
 ### Accuracy is not guaranteed
 
 AI can make mistakes or misunderstand context. While it may summarize or answer questions quickly, the information still needs human judgment.
@@ -90,18 +82,14 @@ AI can make mistakes or misunderstand context. While it may summarize or answer 
 > **Tip:**\
 > Use it to speed up your research, but always double-check important details.
 
-- - -
-
 ### Privacy concerns
 
 An AI-powered browser will need to understand your activity to be helpful. This raises valid questions about how much data it collects and how it's used.
 
 > **Note:**\
-> Users should look for privacy settings and transparency before fully switching.
+> Users should look for Less control over browsing
 
-- - -
 
-### Less control over browsing
 
 Some people enjoy reading entire articles or comparing different views. An AI that filters and summarizes may save time, but could also hide valuable context or opinions.
 
