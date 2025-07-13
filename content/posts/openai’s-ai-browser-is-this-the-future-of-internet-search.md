@@ -7,7 +7,7 @@ description: OpenAI is working on a smart, AI-powered web browser that could
 date: 2025-07-12T12:17:26.486Z
 tags:
   - AI
-  - Web Browser
+  - AI Browser
   - OpenAI
   - ChatGPT
   - Technology Trends
