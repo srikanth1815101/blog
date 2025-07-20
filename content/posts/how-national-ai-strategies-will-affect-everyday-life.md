@@ -34,15 +34,11 @@ Governments are pushing AI into hospitals to reduce patient wait times, improve 
 
 > **Tip**: You might soon be diagnosed faster by an AI assistant before seeing your doctor.
 
-- - -
-
 #### 2. **Education Will Be Personalized**
 
 National plans include AI-based personalized learning tools in schools and colleges. Your children might learn math from AI tutors that adjust content to their pace.
 
 > **Note**: Expect more adaptive, interactive learning in classrooms, especially in rural areas.
-
-- - -
 
 #### 3. **Government Services Will Become Efficient**
 
@@ -50,23 +46,17 @@ Applying for a ration card, passport, or license? AI chatbots and document scann
 
 > No more standing in long queues — AI may cut the red tape for good.
 
-- - -
-
 #### 4. **New Jobs — But Also Job Shifts**
 
 Governments are funding AI skills training programs. While some traditional jobs may shrink, new roles in AI ethics, data labeling, and robotics support will emerge.
 
 > **Tip**: It’s a good time to pick up some AI literacy — not just coding, but understanding how AI works.
 
-- - -
-
 #### 5. **Traffic, Waste, and City Planning Will Get Smarter**
 
 Smart cities are a big part of AI strategies. Expect AI to manage traffic signals, detect road damage, reduce power waste, and improve city cleanliness.
 
 > Example: Bengaluru’s smart traffic pilot has already shown a 30% reduction in congestion using AI.
-
-- - -
 
 #### 6. **Your Privacy Will Be a Policy Priority**
 
