@@ -11,7 +11,7 @@ tags:
   - Galaxy AI
   - Foundational Models
   - Technology Policy
-thumbnail: /images/uploads/chatgpt-image-sep-18-2025-10_31_11-pm_11zon.png
+thumbnail: /images/uploads/chatgpt-image-sep-18-2025-10_37_02-pm_11zon.png
 readingTime: 6
 draft: false
 ---
