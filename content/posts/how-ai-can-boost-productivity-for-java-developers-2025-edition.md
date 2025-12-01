@@ -14,7 +14,7 @@ tags:
   - Software Engineering
 thumbnail: /images/uploads/compressed-image-5-.jpeg
 readingTime: 8
-draft: true
+draft: false
 ---
 <!--StartFragment-->
 
