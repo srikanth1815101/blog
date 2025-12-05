@@ -17,7 +17,7 @@ draft: false
 ---
 <!--StartFragment-->
 
-## 🚀 Introduction: Spring Boot Meets AI
+# 🚀 Introduction: Spring Boot Meets AI
 
 Spring Boot is still the **\#1 framework for enterprise microservices**, powering banking systems, insurance platforms, e-commerce engines, and cloud-native APIs.
 
