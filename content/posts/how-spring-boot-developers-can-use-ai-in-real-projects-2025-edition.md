@@ -29,7 +29,7 @@ AI is now stepping in as a *force multiplier*.
 
 Let’s explore how AI practically integrates into real Spring Boot workflows.
 
-# 🧩 1. AI for Fast Microservice Scaffolding
+# 🧩1. AI for Fast Microservice Scaffolding
 
 Spring Boot projects contain many boilerplates:
 
