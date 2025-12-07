@@ -239,7 +239,7 @@ React developers who embrace AI will:
 * scale enterprise apps easily
 * stay ahead in the job market
 
-The future isn’t just “React development.”\
-It’s **AI-accelerated React development.**
+> The future isn’t just “React development.”\
+> It’s **AI-accelerated React development.**
 
 <!--EndFragment-->
