@@ -12,7 +12,7 @@ tags:
   - Automation
 thumbnail: /images/uploads/compressed-image-9-.jpeg
 readingTime: 7
-draft: true
+draft: false
 ---
 <!--StartFragment-->
 
