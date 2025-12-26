@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cloud Engineering on CSRGO Blog</title><link>https://blog.csrgo.com/tags/cloud-engineering/</link><description>Recent content in Cloud Engineering on CSRGO Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 26 Dec 2025 16:55:17 +0000</lastBuildDate><atom:link href="https://blog.csrgo.com/tags/cloud-engineering/index.xml" rel="self" type="application/rss+xml"/><item><title>How DevOps Engineers Can Use AI to Automate CI/CD Pipelines</title><link>https://blog.csrgo.com/posts/how-devops-engineers-can-use-ai-to-automate-ci-cd-pipelines/</link><pubDate>Fri, 26 Dec 2025 16:55:17 +0000</pubDate><guid>https://blog.csrgo.com/posts/how-devops-engineers-can-use-ai-to-automate-ci-cd-pipelines/</guid><description>&lt;h2 id="-introduction-cicd-is-breaking-under-its-own-complexity"&gt;🚀 Introduction: CI/CD Is Breaking Under Its Own Complexity&lt;/h2&gt;
+&lt;p&gt;Modern CI/CD pipelines are no longer simple build-and-deploy scripts. They involve:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hundreds of microservices&lt;/li&gt;
+&lt;li&gt;Multiple environments&lt;/li&gt;
+&lt;li&gt;Cloud-native infrastructure&lt;/li&gt;
+&lt;li&gt;Security checks&lt;/li&gt;
+&lt;li&gt;Compliance rules&lt;/li&gt;
+&lt;li&gt;Rollbacks and observability&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Manual tuning doesn’t scale anymore.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Quote:&lt;/strong&gt; “DevOps teams don’t need faster pipelines — they need &lt;em&gt;smarter&lt;/em&gt; pipelines.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This is where &lt;strong&gt;AI-powered automation&lt;/strong&gt; enters the picture.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="-why-ai-is-a-game-changer-for-devops"&gt;🤖 Why AI Is a Game-Changer for DevOps&lt;/h2&gt;
+&lt;p&gt;Traditional automation follows &lt;strong&gt;static rules&lt;/strong&gt;.&lt;br&gt;
+AI-driven automation adapts to &lt;strong&gt;real-time data&lt;/strong&gt;.&lt;/p&gt;</description></item></channel></rss>
