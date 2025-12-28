@@ -1,0 +1,84 @@
+{{ define "main" }}
+<article class="py-12 animate-fade-in-up">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <header class="mb-10 text-center animate-fade-in-up">
+            <h1
+                class="text-3xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent inline-block animate-gradient-sheen animate-hue-rotate">
+                {{ .Title }}
+            </h1>
+            <div class="text-gray-500 dark:text-gray-400 mb-4 text-sm">
+                {{ if .Params.lastUpdated }}
+                Last Updated: <time datetime="{{ .Params.lastUpdated }}">{{ .Params.lastUpdated }}</time>
+                {{ else }}
+                <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+                {{ end }}
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="prose prose-lg dark:prose-invert max-w-none mx-auto animate-fade-in-up animate-delay-200">
+            {{ .Content }}
+        </div>
+    </div>
+</article>
+
+<!-- Animations (Reused from single.html/baseof keys if available, but included here for completeness if needed independently) -->
+<style>
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-up {
+        animation: fadeInUp 1s cubic-bezier(.39, .575, .565, 1.000) both;
+    }
+
+    @keyframes gradientSheen {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        100% {
+            background-position: 100% 50%;
+        }
+    }
+
+    .animate-gradient-sheen {
+        background-size: 200% 200%;
+        animation: gradientSheen 4s linear infinite alternate;
+    }
+
+    @keyframes hueRotate {
+        0% {
+            filter: hue-rotate(0deg);
+        }
+
+        100% {
+            filter: hue-rotate(360deg);
+        }
+    }
+
+    .animate-hue-rotate {
+        animation: hueRotate 12s linear infinite;
+    }
+
+    /* Prose Overrides for Legal Pages (Cleaner, less decorative) */
+    .prose h2 {
+        margin-top: 2rem;
+        border-bottom: 1px solid #e5e7eb;
+        padding-bottom: 0.5rem;
+    }
+
+    .dark .prose h2 {
+        border-bottom: 1px solid #374151;
+    }
+</style>
+{{ end }}

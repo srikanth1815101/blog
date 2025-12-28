@@ -2,30 +2,37 @@
 <!-- HEADER (handled in baseof.html) -->
 
 <!-- HERO SECTION (full-screen, centered, responsive, no cut-off text) -->
-<section class="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white-50 via-fuchsia-50 to-blue-50 dark:from-gray-900 dark:to-blue-900 pt-4 pb-8">
+<section
+  class="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white-50 via-fuchsia-50 to-blue-50 dark:from-gray-900 dark:to-blue-900 pt-8 pb-12">
   <div class="w-full max-w-7xl mx-auto px-4 md:px-8 text-center">
-    <h1 class="text-5xl sm:text-6xl md:text-8xl mb-4 leading-[1.1] tracking-tight">
-      <span class="font-black bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent animate-gradient-sheen animate-hue-rotate" style="text-shadow: 2px 2px 6px rgba(60,60,60,0.18);">CSRGO</span>
-      <span class="font-extrabold bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent animate-gradient-sheen animate-hue-rotate ml-2" style="text-shadow: 2px 2px 6px rgba(60,60,60,0.18);">Blog</span>
+    <h1 class="text-4xl sm:text-6xl md:text-8xl mb-2 sm:mb-4 leading-[1.1] tracking-tight">
+      <span
+        class="font-black bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent animate-gradient-sheen animate-hue-rotate"
+        style="text-shadow: 2px 2px 6px rgba(60,60,60,0.18);">CSRGO</span>
+      <span
+        class="font-extrabold bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent animate-gradient-sheen animate-hue-rotate ml-2"
+        style="text-shadow: 2px 2px 6px rgba(60,60,60,0.18);">Blog</span>
     </h1>
-    <div class="flex justify-center mb-6">
-      </div>
-    <h2 class="text-xl sm:text-2xl md:text-3xl font-medium mb-8 text-gray-700 dark:text-gray-300">
+    <div class="flex justify-center mb-4 sm:mb-6">
+    </div>
+    <h2 class="text-lg sm:text-2xl md:text-3xl font-medium mb-4 sm:mb-8 text-gray-700 dark:text-gray-300">
       Tech Insights & Innovation
     </h2>
-    <p class="text-base sm:text-lg md:text-2xl text-gray-700 dark:text-gray-200 mb-8">
-      Discover the latest in AI, development trends, and cutting-edge technology. From roadmaps to cheat sheets, we've got your tech journey covered.
+    <p class="text-sm sm:text-lg md:text-2xl text-gray-700 dark:text-gray-200 mb-6 sm:mb-8">
+      Discover the latest in AI, development trends, and cutting-edge technology. From roadmaps to cheat sheets, we've
+      got your tech journey covered.
     </p>
-    <div class="flex flex-wrap justify-center gap-3 mb-8">
+    <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
+      {{ $posts := where .Site.RegularPages "Section" "posts" }}
       {{ $.Scratch.Set "orderedTags" (slice) }}
       {{ $.Scratch.Set "seenTags" (dict) }}
-      {{ range .Site.RegularPages.ByDate.Reverse }}
-        {{ range .Params.tags }}
-          {{ if not (index ($.Scratch.Get "seenTags") .) }}
-            {{ $.Scratch.Add "orderedTags" (slice .) }}
-            {{ $.Scratch.SetInMap "seenTags" . true }}
-          {{ end }}
-        {{ end }}
+      {{ range $posts.ByDate.Reverse }}
+      {{ range .Params.tags }}
+      {{ if not (index ($.Scratch.Get "seenTags") .) }}
+      {{ $.Scratch.Add "orderedTags" (slice .) }}
+      {{ $.Scratch.SetInMap "seenTags" . true }}
+      {{ end }}
+      {{ end }}
       {{ end }}
       {{ $maxTags := 20 }}
       <script>
@@ -33,11 +40,14 @@
         // The server will render 20 tags, but we can hide extra tags on mobile with CSS.
       </script>
       {{ range $i, $tag := first 20 ($.Scratch.Get "orderedTags") }}
-        <a href="/tags/{{ $tag | urlize }}/" class="hero-tag tag-{{ add $i 1 }} inline-block px-5 py-2 rounded-md text-sm font-bold border-2 bg-transparent border-gradient-to-r from-fuchsia-500 to-blue-500 text-gray-900 dark:text-white hover:shadow-lg hover:border-4 transition-all duration-200" style="border-image: linear-gradient(90deg, #d946ef, #3b82f6) 1;">{{ $tag }}</a>
+      <a href="/tags/{{ $tag | urlize }}/"
+        class="hero-tag tag-{{ add $i 1 }} inline-block px-3 py-1.5 sm:px-5 sm:py-2 rounded-md text-xs sm:text-sm font-bold border-2 bg-transparent border-gradient-to-r from-fuchsia-500 to-blue-500 text-gray-900 dark:text-white hover:shadow-lg hover:border-4 transition-all duration-200"
+        style="border-image: linear-gradient(90deg, #d946ef, #3b82f6) 1;">{{ $tag }}</a>
       {{ end }}
     </div>
-    <div class="mb-10">
-      <a href="#main-content" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white font-semibold rounded-xl shadow hover:scale-105 transition-all duration-300 mx-auto">
+    <div class="mb-4 sm:mb-10">
+      <a href="#main-content"
+        class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white font-semibold rounded-xl shadow hover:scale-105 transition-all duration-300 mx-auto">
         <i data-lucide="compass" class="w-5 h-5 mr-2"></i> Explore Articles
       </a>
     </div>
@@ -49,35 +59,42 @@
 <section class="py-24">
   <div class="max-w-6xl mx-auto px-4">
     <div class="text-center mb-10">
-      <h2 class="text-3xl md:text-4xl font-extrabold mb-2 bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent inline-block">
+      <h2
+        class="text-3xl md:text-4xl font-extrabold mb-2 bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent inline-block">
         Latest & Featured
       </h2>
       <div class="mx-auto w-24 h-1 bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 rounded-full mb-4"></div>
-      <p class="text-gray-600 dark:text-gray-300">Discover our latest and most impactful articles, handpicked for you</p>
+      <p class="text-gray-600 dark:text-gray-300">Discover our latest and most impactful articles, handpicked for you
+      </p>
     </div>
-    {{ $latest := index (.Site.RegularPages.ByDate.Reverse) 0 }}
+    {{ $latest := index ($posts.ByDate.Reverse) 0 }}
     {{ if $latest }}
     <a href="{{ $latest.RelPermalink }}" class="block group">
-      <article class="flex flex-col md:flex-row bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 mb-12 animate-fade-in-up">
+      <article
+        class="flex flex-col md:flex-row bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 mb-12 animate-fade-in-up">
         <!-- Image -->
         <div class="md:w-2/5 w-full aspect-video overflow-hidden md:mr-6">
-          <img src="{{ $latest.Params.thumbnail }}" alt="{{ $latest.Title }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+          <img src="{{ $latest.Params.thumbnail }}" alt="{{ $latest.Title }}"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
         </div>
         <!-- Content -->
         <div class="flex flex-col justify-between p-6 md:w-3/5 w-full">
           <div>
             <!-- Title -->
-            <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white transition-colors group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:via-fuchsia-500 group-hover:to-pink-500 group-hover:bg-clip-text group-hover:text-transparent">
+            <h3
+              class="text-2xl font-bold mb-2 text-gray-900 dark:text-white transition-colors group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:via-fuchsia-500 group-hover:to-pink-500 group-hover:bg-clip-text group-hover:text-transparent">
               {{ $latest.Title }}
             </h3>
             <!-- Meta -->
             <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mb-4">
               <i data-lucide="calendar" class="w-4 h-4 mr-1"></i>
-              <time datetime="{{ $latest.Date.Format "2006-01-02" }}">{{ $latest.Date.Format "Jan 2, 2006" }}</time>
-              {{ with $latest.Params.readingTime }}<span class="mx-1">•</span><i data-lucide="clock" class="w-4 h-4 mr-1"></i>{{ . }} min read{{ end }}
+              <time datetime="{{ $latest.Date.Format " 2006-01-02" }}">{{ $latest.Date.Format "Jan 2, 2006" }}</time>
+              {{ with $latest.Params.readingTime }}<span class="mx-1">•</span><i data-lucide="clock"
+                class="w-4 h-4 mr-1"></i>{{ . }} min read{{ end }}
             </div>
             <!-- Description -->
-            <p class="text-gray-700 dark:text-gray-300 mb-4 line-clamp-4">{{ if $latest.Description }}{{ $latest.Description }}{{ else }}{{ $latest.Summary | plainify | truncate 160 }}{{ end }}</p>
+            <p class="text-gray-700 dark:text-gray-300 mb-4 line-clamp-4">{{ if $latest.Description }}{{
+              $latest.Description }}{{ else }}{{ $latest.Summary | plainify | truncate 160 }}{{ end }}</p>
           </div>
         </div>
       </article>
@@ -85,31 +102,37 @@
     {{ end }}
     <!-- Next 3 Featured Posts -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
-      {{ range first 6 (after 1 .Site.RegularPages.ByDate.Reverse) }}
+      {{ range first 6 (after 1 $posts.ByDate.Reverse) }}
       <a href="{{ .RelPermalink }}" class="block group">
-        <article class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col animate-fade-in-up">
+        <article
+          class="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 flex flex-col animate-fade-in-up">
           {{ if .Params.thumbnail }}
           <div class="aspect-video overflow-hidden">
-            <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+            <img src="{{ .Params.thumbnail }}" alt="{{ .Title }}"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
           </div>
           {{ end }}
           <div class="p-6 flex flex-col flex-1">
             <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-3">
               <i data-lucide="calendar" class="w-4 h-4 mr-1"></i>
-              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-              {{ with .Params.readingTime }}<span class="mx-2">•</span><i data-lucide="clock" class="w-4 h-4 mr-1"></i>{{ . }} min read{{ end }}
+              <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+              {{ with .Params.readingTime }}<span class="mx-2">•</span><i data-lucide="clock"
+                class="w-4 h-4 mr-1"></i>{{ . }} min read{{ end }}
             </div>
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2 transition-colors group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:via-fuchsia-500 group-hover:to-pink-500 group-hover:bg-clip-text group-hover:text-transparent">
+            <h3
+              class="text-xl font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2 transition-colors group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:via-fuchsia-500 group-hover:to-pink-500 group-hover:bg-clip-text group-hover:text-transparent">
               {{ .Title }}
             </h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary | plainify | truncate 120 }}{{ end }}</p>
+            <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">{{ if .Description }}{{ .Description }}{{ else
+              }}{{ .Summary | plainify | truncate 120 }}{{ end }}</p>
           </div>
         </article>
       </a>
       {{ end }}
     </div>
     <div class="text-center">
-      <a href="/posts/" onclick="localStorage.removeItem('csrgo_blog_post_filter')" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white font-bold rounded-2xl shadow-xl hover:scale-105 transition-all duration-300">
+      <a href="/posts/" onclick="localStorage.removeItem('csrgo_blog_post_filter')"
+        class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white font-bold rounded-2xl shadow-xl hover:scale-105 transition-all duration-300">
         View All Articles <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
       </a>
     </div>
@@ -117,17 +140,57 @@
 </section>
 <!-- FOOTER (handled in baseof.html) -->
 <style>
-  @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
-  .animate-fade-in-up { animation: fadeInUp 1s cubic-bezier(.39,.575,.565,1.000) both; }
-  @keyframes gradientSheen { 0%{background-position:0% 50%;} 100%{background-position:100% 50%;} }
-  .animate-gradient-sheen { background-size:200% 200%; animation:gradientSheen 4s linear infinite alternate; }
-  @keyframes hueRotate { 0%{filter:hue-rotate(0deg);} 100%{filter:hue-rotate(360deg);} }
-  .animate-hue-rotate { animation:hueRotate 12s linear infinite; }
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 1s cubic-bezier(.39, .575, .565, 1.000) both;
+  }
+
+  @keyframes gradientSheen {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-gradient-sheen {
+    background-size: 200% 200%;
+    animation: gradientSheen 4s linear infinite alternate;
+  }
+
+  @keyframes hueRotate {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  .animate-hue-rotate {
+    animation: hueRotate 12s linear infinite;
+  }
+
   @media (max-width: 640px) {
     .hero-tag {
       font-size: 0.75rem;
       padding: 0.18rem 0.55rem;
     }
+
     .hero-tag.tag-16,
     .hero-tag.tag-17,
     .hero-tag.tag-18,
@@ -137,4 +200,4 @@
     }
   }
 </style>
-{{ end }} 
+{{ end }}
