@@ -4,16 +4,10 @@
         <!-- Header -->
         <header class="mb-10 text-center animate-fade-in-up">
             <h1
-                class="text-3xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent inline-block animate-gradient-sheen animate-hue-rotate">
+                class="text-3xl md:text-5xl font-extrabold mb-4 pb-2 bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent inline-block animate-gradient-sheen animate-hue-rotate">
                 {{ .Title }}
             </h1>
-            <div class="text-gray-500 dark:text-gray-400 mb-4 text-sm">
-                {{ if .Params.lastUpdated }}
-                Last Updated: <time datetime="{{ .Params.lastUpdated }}">{{ .Params.lastUpdated }}</time>
-                {{ else }}
-                <time datetime="{{ .Date.Format " 2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-                {{ end }}
-            </div>
+
         </header>
 
         <!-- Content -->
