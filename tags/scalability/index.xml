@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scalability on CSRGO Blog</title><link>https://blog.csrgo.com/tags/scalability/</link><description>Recent content in Scalability on CSRGO Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 10 Jan 2026 16:04:25 +0000</lastBuildDate><atom:link href="https://blog.csrgo.com/tags/scalability/index.xml" rel="self" type="application/rss+xml"/><item><title>Are Enterprises Moving Back to Monolithic Architectures? What’s Happening and What Developers Should Know</title><link>https://blog.csrgo.com/posts/are-enterprises-moving-back-to-monolithic-architectures-whats-happening-and-what-developers-should-know/</link><pubDate>Sat, 10 Jan 2026 16:04:25 +0000</pubDate><guid>https://blog.csrgo.com/posts/are-enterprises-moving-back-to-monolithic-architectures-whats-happening-and-what-developers-should-know/</guid><description>&lt;h2 id="-introduction-the-microservices-promise--and-the-reality"&gt;🚀 Introduction: The Microservices Promise — And The Reality&lt;/h2&gt;
+&lt;p&gt;For over a decade, &lt;strong&gt;microservices&lt;/strong&gt; have been marketed as the “optimal” architecture for large systems. By breaking applications into independent, loosely coupled services, engineers believed they could achieve:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Better scalability&lt;/li&gt;
+&lt;li&gt;Independent deployments&lt;/li&gt;
+&lt;li&gt;Distributed team autonomy&lt;/li&gt;
+&lt;li&gt;Technology heterogeneity&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In many successful cases, these benefits materialized — especially for hyper-growth cloud platforms and massive consumer APIs.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;But then reality happened.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In recent years, enterprises began to discover that microservices also bring:&lt;/p&gt;</description></item></channel></rss>
