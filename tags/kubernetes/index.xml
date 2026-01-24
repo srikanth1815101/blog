@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes on CSRGO Blog</title><link>https://blog.csrgo.com/tags/kubernetes/</link><description>Recent content in Kubernetes on CSRGO Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 24 Jan 2026 16:48:01 +0000</lastBuildDate><atom:link href="https://blog.csrgo.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title>What the Job Market Expects From Java Spring Boot Backend Developers (2026)</title><link>https://blog.csrgo.com/posts/what-the-job-market-expects-from-java-spring-boot-backend-developers-2026/</link><pubDate>Sat, 24 Jan 2026 16:48:01 +0000</pubDate><guid>https://blog.csrgo.com/posts/what-the-job-market-expects-from-java-spring-boot-backend-developers-2026/</guid><description>&lt;h2 id="-overview-why-expectations-have-shifted"&gt;🚀 Overview: Why Expectations Have Shifted&lt;/h2&gt;
+&lt;p&gt;A decade ago, most backend jobs focused on writing business logic — CRUD APIs, database access, and simple services.&lt;/p&gt;
+&lt;p&gt;By 2026, the role has expanded drastically due to:&lt;/p&gt;
+&lt;p&gt;📌 Cloud-first architectures&lt;br&gt;
+📌 Widespread use of microservices&lt;br&gt;
+📌 Continuous delivery standards&lt;br&gt;
+📌 Real-time data processing&lt;br&gt;
+📌 Security &amp;amp; compliance requirements&lt;br&gt;
+📌 Demand for scalable and resilient systems&lt;/p&gt;
+&lt;p&gt;Today’s Java backend developer must be &lt;strong&gt;an engineer who can build, deploy, operate, secure, and scale services in production.&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>
