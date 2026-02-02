@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Java Interviews on CSRGO Blog</title><link>https://blog.csrgo.com/tags/java-interviews/</link><description>Recent content in Java Interviews on CSRGO Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 02 Feb 2026 16:25:31 +0000</lastBuildDate><atom:link href="https://blog.csrgo.com/tags/java-interviews/index.xml" rel="self" type="application/rss+xml"/><item><title>Top 25 DSA Interview Questions Every Java Fresher Must Prepare</title><link>https://blog.csrgo.com/posts/top-25-dsa-interview-questions-every-java-fresher-must-prepare/</link><pubDate>Mon, 02 Feb 2026 16:25:31 +0000</pubDate><guid>https://blog.csrgo.com/posts/top-25-dsa-interview-questions-every-java-fresher-must-prepare/</guid><description>&lt;p&gt;&lt;code&gt;public static int[] twoSum(int[] nums, int target) {&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;Map&amp;lt;Integer, Integer&amp;gt; map = new HashMap&amp;lt;&amp;gt;();&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;for (int i = 0; i &amp;lt; nums.length; i++) {&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;int diff = target - nums[i];&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;if (map.containsKey(diff)) {&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;return new int[]{map.get(diff), i};&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;}&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;map.put(nums[i], i);&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;}&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;return new int[]{};&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;}&lt;/code&gt;&lt;/p&gt;</description></item></channel></rss>
