@@ -84,7 +84,17 @@ Avoid dumping everything inside a single package.
 Use layered architecture:
 
 ```
-
+com.company.project
+ ├── controller
+ ├── service
+ ├── repository
+ ├── dto
+ ├── entity
+ ├── mapper
+ ├── exception
+ ├── config
+ ├── security
+ └── util
 ```
 
 - - -
@@ -204,7 +214,13 @@ Handle:
 Return structured error response:
 
 ```
-
+{
+  "timestamp": "...",
+  "status": 400,
+  "error": "Validation Failed",
+  "message": "Email is invalid",
+  "path": "/api/v1/users"
+}
 ```
 
 - - -
