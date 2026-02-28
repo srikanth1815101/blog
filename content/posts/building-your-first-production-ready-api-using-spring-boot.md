@@ -22,7 +22,7 @@ draft: false
 ---
 <!--StartFragment-->
 
-# Introduction
+## Introduction
 
 Building a simple CRUD API is easy.
 
@@ -42,7 +42,7 @@ We’ll use **Spring Boot** as the core framework.
 
 - - -
 
-# 1️⃣ What Does “Production-Ready” Really Mean?
+## 1️⃣ What Does “Production-Ready” Really Mean?
 
 A production-ready API must:
 
@@ -61,7 +61,7 @@ They’re judged by “it runs safely in production at scale.”
 
 - - -
 
-# 2️⃣ Choosing the Right Stack
+## 2️⃣ Choosing the Right Stack
 
 A modern enterprise API stack:
 
@@ -77,7 +77,7 @@ A modern enterprise API stack:
 
 - - -
 
-# 3️⃣ Enterprise-Level Project Structure
+## 3️⃣ Enterprise-Level Project Structure
 
 Avoid dumping everything inside a single package.
 
@@ -111,7 +111,7 @@ And reverse for response.
 
 - - -
 
-# 4️⃣ Layered Architecture Explained
+## 4️⃣ Layered Architecture Explained
 
 ## Controller Layer
 
@@ -174,7 +174,7 @@ Use:
 
 - - -
 
-# 5️⃣ Designing a Real-World API (Example: User Management)
+## 5️⃣ Designing a Real-World API (Example: User Management)
 
 Let’s design a production-ready User API.
 
@@ -198,7 +198,7 @@ GET /api/v1/users?page=0&size=10
 
 - - -
 
-# 6️⃣ Global Exception Handling (Enterprise Standard)
+## 6️⃣ Global Exception Handling (Enterprise Standard)
 
 Never expose stack traces to clients.
 
@@ -225,7 +225,7 @@ Return structured error response:
 
 - - -
 
-# 7️⃣ Input Validation
+## 7️⃣ Input Validation
 
 Use:
 
@@ -244,7 +244,7 @@ Never trust client input.
 
 - - -
 
-# 8️⃣ Logging Strategy (Production Grade)
+## 8️⃣ Logging Strategy (Production Grade)
 
 Logging is critical.
 
@@ -268,7 +268,7 @@ Log important events:
 
 - - -
 
-# 9️⃣ Security with Spring Security + JWT
+## 9️⃣ Security with Spring Security + JWT
 
 Enterprise APIs require authentication.
 
@@ -300,7 +300,7 @@ Secure endpoints:
 
 - - -
 
-# 🔟 Database Design Considerations
+## 🔟 Database Design Considerations
 
 Use:
 
@@ -317,7 +317,7 @@ Understand:
 
 - - -
 
-# 1️⃣1️⃣ Pagination & Sorting (Mandatory for Production)
+## 1️⃣1️⃣ Pagination & Sorting (Mandatory for Production)
 
 Never return 10,000 records in one response.
 
@@ -331,7 +331,7 @@ GET /users?page=0&size=20&sort=name,asc
 
 - - -
 
-# 1️⃣2️⃣ API Documentation
+## 1️⃣2️⃣ API Documentation
 
 Use OpenAPI.
 
@@ -350,7 +350,7 @@ Document:
 
 - - -
 
-# 1️⃣3️⃣ Performance Optimization
+## 1️⃣3️⃣ Performance Optimization
 
 Consider:
 
@@ -362,7 +362,7 @@ Consider:
 
 - - -
 
-# 1️⃣4️⃣ Caching Strategy
+## 1️⃣4️⃣ Caching Strategy
 
 Use:
 
@@ -376,7 +376,7 @@ Cache:
 
 - - -
 
-# 1️⃣5️⃣ Monitoring & Observability
+## 1️⃣5️⃣ Monitoring & Observability
 
 Production systems require visibility.
 
@@ -394,7 +394,7 @@ Expose:
 
 - - -
 
-# 1️⃣6️⃣ Dockerizing the Application
+## 1️⃣6️⃣ Dockerizing the Application
 
 Create Dockerfile:
 
@@ -410,7 +410,7 @@ Why Docker?
 
 - - -
 
-# 1️⃣7️⃣ CI/CD Pipeline Readiness
+## 1️⃣7️⃣ CI/CD Pipeline Readiness
 
 Your API should:
 
@@ -427,7 +427,7 @@ Use:
 
 - - -
 
-# 1️⃣8️⃣ Testing Strategy (Often Ignored)
+## 1️⃣8️⃣ Testing Strategy (Often Ignored)
 
 Write:
 
@@ -445,7 +445,7 @@ At least 70–80% for serious projects.
 
 - - -
 
-# 1️⃣9️⃣ Clean Code & Maintainability
+## 1️⃣9️⃣ Clean Code & Maintainability
 
 Follow:
 
@@ -459,7 +459,7 @@ Enterprise code should be readable 2 years later.
 
 - - -
 
-# 2️⃣0️⃣ Scaling Considerations
+## 2️⃣0️⃣ Scaling Considerations
 
 Prepare for:
 
