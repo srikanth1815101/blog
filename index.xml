@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSRGO Blog</title><link>https://blog.csrgo.com/</link><description>Recent content on CSRGO Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 11 Mar 2026 13:31:53 +0000</lastBuildDate><atom:link href="https://blog.csrgo.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Anthropic Academy Courses Explained: Which Course Matters for Which Professionals</title><link>https://blog.csrgo.com/posts/anthropic-academy-courses-explained-which-course-matters-for-which-professionals/</link><pubDate>Wed, 11 Mar 2026 13:31:53 +0000</pubDate><guid>https://blog.csrgo.com/posts/anthropic-academy-courses-explained-which-course-matters-for-which-professionals/</guid><description>&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CSRGO Blog</title><link>https://blog.csrgo.com/</link><description>Recent content on CSRGO Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 26 Mar 2026 06:25:37 +0000</lastBuildDate><atom:link href="https://blog.csrgo.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Agent Skills in AI Development: How skill.md Transforms Java &amp; Spring Boot Workflows</title><link>https://blog.csrgo.com/posts/agent-skills-in-ai-development-how-skill-md-transforms-java-spring-boot-workflows/</link><pubDate>Thu, 26 Mar 2026 06:25:37 +0000</pubDate><guid>https://blog.csrgo.com/posts/agent-skills-in-ai-development-how-skill-md-transforms-java-spring-boot-workflows/</guid><description>&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;AI-assisted development is evolving beyond simple prompts.&lt;/p&gt;
+&lt;p&gt;We are moving toward &lt;strong&gt;agent-based systems&lt;/strong&gt;, where AI can:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;execute multi-step workflows&lt;/li&gt;
+&lt;li&gt;follow predefined rules&lt;/li&gt;
+&lt;li&gt;reuse structured instructions&lt;/li&gt;
+&lt;li&gt;behave consistently across tasks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;One of the key concepts enabling this is &lt;strong&gt;Agent Skills&lt;/strong&gt;, often implemented using a file like:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;skill.md&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Instead of writing the same prompts repeatedly, developers define reusable instructions that AI automatically applies when relevant.&lt;/p&gt;
+&lt;p&gt;For Java and Spring Boot developers, this is a &lt;strong&gt;major shift in how development workflows are optimized&lt;/strong&gt;.&lt;/p&gt;</description></item><item><title>Anthropic Academy Courses Explained: Which Course Matters for Which Professionals</title><link>https://blog.csrgo.com/posts/anthropic-academy-courses-explained-which-course-matters-for-which-professionals/</link><pubDate>Wed, 11 Mar 2026 13:31:53 +0000</pubDate><guid>https://blog.csrgo.com/posts/anthropic-academy-courses-explained-which-course-matters-for-which-professionals/</guid><description>&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
 &lt;p&gt;Artificial intelligence is rapidly becoming a &lt;strong&gt;core layer of modern software systems&lt;/strong&gt;. Organizations are integrating AI into:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;enterprise applications&lt;/li&gt;
