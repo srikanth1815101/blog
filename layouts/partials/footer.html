@@ -1,38 +1,81 @@
-<footer class="bg-gradient-to-t from-gray-900 via-gray-950 to-blue-950 text-white pt-16 pb-8 mt-16">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
-    <!-- Logo & Description -->
-    <div class="md:col-span-2 flex flex-col gap-4">
-      <a href="/" class="flex items-center gap-1 group">
-        <img src="/logo.png" alt="Logo"
-          class="h-10 w-10 object-contain transition-transform duration-200 group-hover:scale-105 leading-none pb-1 filter brightness-0 invert"
-          style="max-width: 44px; min-width: 36px;" />
-        <span class="mx-1 h-7 border-l border-gray-400 dark:border-gray-300 inline-block relative -mt-1"></span>
-        <span class="text-4xl font-extrabold text-white select-none leading-none pb-1">Blog</span>
-      </a>
-      <p class="text-gray-300 text-sm">Exploring the latest in technology, AI, and development. Join us on a journey
-        through cutting-edge innovations and practical guides.</p>
+<footer class="bg-gradient-to-t from-gray-900 via-gray-950 to-blue-950 text-white pt-16 pb-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 gap-12 text-center md:text-left">
+        <!-- Logo & Description -->
+        <div class="md:col-span-2 flex flex-col gap-4">
+            <a href="/" class="flex items-center justify-center md:justify-start gap-1 group">
+                <img src="/logo.png" alt="CSRGO Blog"
+                    class="h-10 w-10 object-contain transition-transform duration-200 group-hover:scale-105 leading-none pb-1 filter brightness-0 invert"
+                    style="max-width: 44px; min-width: 36px;" />
+                <span class="mx-1 h-7 border-l border-gray-400 dark:border-gray-300 inline-block relative -mt-1"></span>
+                <span class="text-4xl font-extrabold text-white select-none leading-none pb-1">CSRGO Blog</span>
+            </a>
+            <p class="text-gray-300 text-sm max-w-md mx-auto md:mx-0">{{ .Site.Params.description }}</p>
+        </div>
+        <!-- Quick Links -->
+        <div>
+            <h4 class="font-bold mb-3">Quick Links</h4>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                {{ range .Site.Menus.main }}
+                <li><a href="{{ .URL }}" class="hover:text-blue-400">{{ .Name }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+        <!-- Legal -->
+        <div>
+            <h4 class="font-bold mb-3">Legal</h4>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li><a href="/privacy-policy/" class="hover:text-blue-400">Privacy Policy</a></li>
+                <li><a href="/terms-conditions/" class="hover:text-blue-400">Terms & Conditions</a></li>
+                <li><a href="/cookie-policy/" class="hover:text-blue-400">Cookie Policy</a></li>
+            </ul>
+        </div>
+        <!-- CSRGO Platforms -->
+        <div>
+            <h4 class="font-bold mb-3">CSRGO Platforms</h4>
+            <ul class="space-y-2 text-gray-300 text-sm">
+                <li><a href="https://csrgo.com" class="hover:text-blue-400" target="_blank" rel="noopener">CSRGO.com</a>
+                </li>
+                <li><a href="https://tools.csrgo.com" class="hover:text-blue-400">Tools</a></li>
+                <li><a href="https://blog.csrgo.com" class="hover:text-blue-400">Blog</a></li>
+                <li><a href="https://services.csrgo.com" class="hover:text-blue-400">Services</a></li>
+                <li><a href="https://wishes.csrgo.com" class="hover:text-blue-400">Wishes</a></li>
+            </ul>
+        </div>
     </div>
-    <!-- Quick Links -->
-    <div>
-      <h4 class="font-bold mb-3">Quick Links</h4>
-      <ul class="space-y-2 text-gray-300 text-sm">
-        <li><a href="/" class="hover:text-blue-400">Home</a></li>
-        <li><a href="/posts/" class="hover:text-blue-400">Posts</a></li>
-        <li><a href="/about/" class="hover:text-blue-400">About</a></li>
-      </ul>
+    <div class="border-t border-gray-800 mt-12 pt-6 text-center text-gray-400 text-sm">
+        © {{ now.Year }} CSRGO Blog. All rights reserved.<br>
     </div>
-    <!-- Legal Links -->
-    <div>
-      <h4 class="font-bold mb-3">Legal</h4>
-      <ul class="space-y-2 text-gray-300 text-sm">
-        <li><a href="/privacy-policy/" class="hover:text-blue-400">Privacy Policy</a></li>
-        <li><a href="/terms-conditions/" class="hover:text-blue-400">Terms & Conditions</a></li>
-        <li><a href="/cookie-policy/" class="hover:text-blue-400">Cookie Policy</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="border-t border-gray-800 mt-12 pt-6 text-center text-gray-400 text-sm">
-    © {{ now.Year }} CSRGO Blog. All rights reserved.<br>
-  </div>
-  <script>lucide.createIcons();</script>
+
+    <!-- Go to Top Button (matching DSA) -->
+    <button id="goToTopBtn"
+        class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[101] hidden items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-lg shadow-blue-500/30 hover:shadow-xl hover:-translate-y-1 active:scale-95 transition-all duration-300 opacity-0 transform translate-y-4"
+        aria-label="Go to top">
+        <i data-lucide="chevron-up" class="w-6 h-6"></i>
+    </button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+            const goToTopBtn = document.getElementById('goToTopBtn');
+            if (goToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        goToTopBtn.classList.remove('hidden', 'opacity-0', 'translate-y-4');
+                        goToTopBtn.classList.add('flex', 'opacity-100', 'translate-y-0');
+                    } else {
+                        goToTopBtn.classList.remove('flex', 'opacity-100', 'translate-y-0');
+                        goToTopBtn.classList.add('hidden', 'opacity-0', 'translate-y-4');
+                    }
+                }, { passive: true });
+
+                goToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    </script>
 </footer>

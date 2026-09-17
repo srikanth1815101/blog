@@ -17,9 +17,14 @@ title = "CSRGO Blog"
     weight = 1
   [[menu.main]]
     identifier = "posts"
-    name = "All Posts"
+    name = "Posts"
     url = "/posts/"
     weight = 2
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 3
 
 [markup]
   [markup.goldmark]
