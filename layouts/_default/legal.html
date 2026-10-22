@@ -1,17 +1,17 @@
 {{ define "main" }}
 <article class="py-12 animate-fade-in-up">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
         <header class="mb-10 text-center animate-fade-in-up">
             <h1
-                class="text-3xl md:text-5xl font-extrabold mb-4 pb-2 bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent inline-block animate-gradient-sheen animate-hue-rotate">
+                class="font-display text-3xl md:text-5xl font-extrabold mb-4 pb-2 bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent inline-block animate-gradient-sheen animate-hue-rotate">
                 {{ .Title }}
             </h1>
 
         </header>
 
         <!-- Content -->
-        <div class="prose prose-lg dark:prose-invert max-w-none mx-auto animate-fade-in-up animate-delay-200">
+        <div class="prose prose-lg dark:prose-invert max-w-none w-full mx-auto animate-fade-in-up animate-delay-200">
             {{ .Content }}
         </div>
     </div>

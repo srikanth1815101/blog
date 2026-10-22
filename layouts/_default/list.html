@@ -1,63 +1,13 @@
 {{ define "main" }}
 <!-- HEADER (handled in baseof.html) -->
 
-<!-- HERO SECTION (full-screen, centered, responsive, no cut-off text) -->
-<section
-  class="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white-50 via-fuchsia-50 to-blue-50 dark:from-gray-900 dark:to-blue-900 pt-24 sm:pt-28 pb-12">
-  <div class="w-full max-w-7xl mx-auto px-4 md:px-8 text-center">
-    <h1 class="text-4xl sm:text-6xl md:text-8xl mb-2 sm:mb-4 leading-[1.1] tracking-tight">
-      <span
-        class="font-black bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent animate-gradient-sheen animate-hue-rotate"
-        style="text-shadow: 2px 2px 6px rgba(60,60,60,0.18);">CSRGO</span>
-      <span
-        class="font-extrabold bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent animate-gradient-sheen animate-hue-rotate ml-2"
-        style="text-shadow: 2px 2px 6px rgba(60,60,60,0.18);">Blog</span>
-    </h1>
-    <div class="flex justify-center mb-4 sm:mb-6">
-    </div>
-    <h2 class="text-lg sm:text-2xl md:text-3xl font-medium mb-4 sm:mb-8 text-gray-700 dark:text-gray-300">
-      Tech Insights & Innovation
-    </h2>
-    <p class="text-sm sm:text-lg md:text-2xl text-gray-700 dark:text-gray-200 mb-6 sm:mb-8">
-      Discover the latest in AI, development trends, and cutting-edge technology. From roadmaps to cheat sheets, we've
-      got your tech journey covered.
-    </p>
-    <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-      {{ $posts := where .Site.RegularPages "Section" "posts" }}
-      {{ $.Scratch.Set "orderedTags" (slice) }}
-      {{ $.Scratch.Set "seenTags" (dict) }}
-      {{ range $posts.ByDate.Reverse }}
-      {{ range .Params.tags }}
-      {{ if not (index ($.Scratch.Get "seenTags") .) }}
-      {{ $.Scratch.Add "orderedTags" (slice .) }}
-      {{ $.Scratch.SetInMap "seenTags" . true }}
-      {{ end }}
-      {{ end }}
-      {{ end }}
-      {{ $maxTags := 20 }}
-      <script>
-        // This script is only for progressive enhancement; Hugo can't do server-side device detection.
-        // The server will render 20 tags, but we can hide extra tags on mobile with CSS.
-      </script>
-      {{ range $i, $tag := first 20 ($.Scratch.Get "orderedTags") }}
-      <a href="/tags/{{ $tag | urlize }}/"
-        class="hero-tag tag-{{ add $i 1 }} inline-block px-3 py-1.5 sm:px-5 sm:py-2 rounded-md text-xs sm:text-sm font-bold border-2 bg-transparent border-gradient-to-r from-fuchsia-500 to-blue-500 text-gray-900 dark:text-white hover:shadow-lg hover:border-4 transition-all duration-200"
-        style="border-image: linear-gradient(90deg, #d946ef, #3b82f6) 1;">{{ $tag }}</a>
-      {{ end }}
-    </div>
-    <div class="mb-4 sm:mb-10">
-      <a href="#main-content"
-        class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white font-semibold rounded-xl shadow hover:scale-105 transition-all duration-300 mx-auto">
-        <i data-lucide="compass" class="w-5 h-5 mr-2"></i> Explore Articles
-      </a>
-    </div>
-  </div>
-</section>
+<!-- HERO SECTION inspired by Bolt and tailored for CSRGO Blog -->
+{{ partial "hero.html" . }}
 
 <!-- MAIN CONTENT (hidden until scroll, anchor for Explore Articles button) -->
 <div id="main-content"></div>
 <section class="py-24">
-  <div class="max-w-6xl mx-auto px-4">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-10">
       <h2
         class="text-3xl md:text-4xl font-extrabold mb-2 bg-gradient-to-r from-blue-600 via-fuchsia-500 to-pink-500 bg-clip-text text-transparent inline-block">
@@ -67,6 +17,7 @@
       <p class="text-gray-600 dark:text-gray-300">Discover our latest and most impactful articles, handpicked for you
       </p>
     </div>
+    {{ $posts := where .Site.RegularPages "Section" "posts" }}
     {{ $latest := index ($posts.ByDate.Reverse) 0 }}
     {{ if $latest }}
     <a href="{{ $latest.RelPermalink }}" class="block group">
@@ -82,7 +33,7 @@
           <div>
             <!-- Title -->
             <h3
-              class="text-2xl font-bold mb-2 text-gray-900 dark:text-white transition-colors group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:via-fuchsia-500 group-hover:to-pink-500 group-hover:bg-clip-text group-hover:text-transparent">
+              class="font-display text-2xl font-bold mb-2 text-gray-900 dark:text-white transition-colors group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:via-fuchsia-500 group-hover:to-pink-500 group-hover:bg-clip-text group-hover:text-transparent">
               {{ $latest.Title }}
             </h3>
             <!-- Meta -->
@@ -120,7 +71,7 @@
                 class="w-4 h-4 mr-1"></i>{{ . }} min read{{ end }}
             </div>
             <h3
-              class="text-xl font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2 transition-colors group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:via-fuchsia-500 group-hover:to-pink-500 group-hover:bg-clip-text group-hover:text-transparent">
+              class="font-display text-xl font-semibold text-gray-900 dark:text-white mb-3 line-clamp-2 transition-colors group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:via-fuchsia-500 group-hover:to-pink-500 group-hover:bg-clip-text group-hover:text-transparent">
               {{ .Title }}
             </h3>
             <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">{{ if .Description }}{{ .Description }}{{ else
@@ -132,8 +83,8 @@
     </div>
     <div class="text-center">
       <a href="/posts/" onclick="localStorage.removeItem('csrgo_blog_post_filter')"
-        class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white font-bold rounded-2xl shadow-xl hover:scale-105 transition-all duration-300">
-        View All Articles <i data-lucide="arrow-right" class="w-5 h-5 ml-2"></i>
+        class="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white font-semibold rounded-2xl shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300">
+        <span>View All Articles</span> <i data-lucide="arrow-right" class="w-5 h-5 ml-1"></i>
       </a>
     </div>
   </div>

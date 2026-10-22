@@ -1,0 +1,92 @@
+{{/* HERO SECTION inspired by Bolt and tailored for CSRGO Blog */}}
+{{- $posts := where .Site.RegularPages "Section" "posts" -}}
+{{- $.Scratch.Set "tagsList" (slice) -}}
+{{- $.Scratch.Set "seenTags" (dict) -}}
+{{- range $posts.ByDate.Reverse -}}
+{{- range .Params.tags -}}
+{{- if not (index ($.Scratch.Get "seenTags") .) -}}
+{{- $.Scratch.Add "tagsList" (slice .) -}}
+{{- $.Scratch.SetInMap "seenTags" . true -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- $trendingTags := first 14 ($.Scratch.Get "tagsList") -}}
+{{- if not $trendingTags -}}
+{{- $trendingTags = slice "AI Agents" "System Design" "Vibe Coding" "Autonomous AI" "Dev Productivity" "Python AI" "React 19" "Cloud Architecture" "Enterprise AI" "Vector DBs" "TypeScript" "LLMs & RAG" -}}
+{{- end -}}
+
+<section class="relative h-screen min-h-[100dvh] flex flex-col justify-between pt-20 sm:pt-28 md:pt-32 pb-4 sm:pb-6 overflow-hidden mesh-bg">
+  <!-- Floating decorative glowing orbs -->
+  <div class="pointer-events-none absolute top-1/4 left-4 sm:left-12 w-64 sm:w-80 h-64 sm:h-80 bg-blue-600/20 dark:bg-blue-500/20 rounded-full blur-3xl animate-pulse-glow"></div>
+  <div class="pointer-events-none absolute bottom-1/4 right-4 sm:right-12 w-80 sm:w-96 h-80 sm:h-96 bg-cyan-500/15 dark:bg-cyan-400/15 rounded-full blur-3xl animate-pulse-glow" style="animation-delay: 1.8s;"></div>
+  <div class="pointer-events-none absolute top-1/2 left-1/3 w-60 sm:w-72 h-60 sm:h-72 bg-purple-600/15 dark:bg-purple-500/15 rounded-full blur-3xl animate-float-slow"></div>
+
+  <!-- Tech Grid pattern overlay -->
+  <div class="pointer-events-none absolute inset-0 tech-grid"></div>
+
+  <!-- Main Hero Content Area (Vertically centered) -->
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 my-auto">
+    <div class="max-w-4xl">
+      <!-- Badge Pill -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full glass-pill mb-3 sm:mb-6 transition-transform hover:scale-[1.02] shadow-sm animate-fade-in">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400"></i>
+        <span class="text-[11px] sm:text-xs md:text-sm font-medium text-gray-700 dark:text-gray-200 tracking-wide">
+          Curated tech guides &amp; roadmaps
+        </span>
+      </div>
+
+      <!-- Main Display Headline -->
+      <h1 class="font-display font-bold text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-white leading-[1.15] sm:leading-[1.12] tracking-tight mb-3 sm:mb-5">
+        Navigate the frontier of <br class="hidden sm:inline" />
+        <span class="text-gradient">AI &amp; software engineering</span> <br />
+        with clarity and depth.
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-xs sm:text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mb-4 sm:mb-8 line-clamp-3 sm:line-clamp-none">
+        Deep dives into artificial intelligence, developer roadmaps, full-stack architecture, and interview prep — curated by practitioners to keep you ahead of the curve.
+      </p>
+
+      <!-- Single Action CTA Button -->
+      <div>
+        <a href="#main-content"
+          class="group inline-flex items-center gap-2 sm:gap-2.5 px-5 py-2.5 sm:px-7 sm:py-3.5 text-xs sm:text-sm md:text-base font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 rounded-xl sm:rounded-2xl shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300">
+          <span>Explore Articles</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trending Now anchored at bottom of hero section with earlier content width -->
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 pb-4 sm:pb-6">
+    <div class="max-w-4xl">
+      <div class="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+        <i data-lucide="trending-up" class="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400"></i>
+        <span class="text-[10px] sm:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
+          Trending Now
+        </span>
+      </div>
+
+      <div class="relative overflow-hidden mask-fade py-1">
+        <div class="flex gap-2.5 sm:gap-3 animate-marquee w-max hover:[animation-play-state:paused]">
+          {{/* First set of tags */}}
+          {{ range $trendingTags }}
+          <a href="/tags/{{ . | urlize }}/"
+            class="shrink-0 px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs md:text-sm font-medium rounded-full glass-pill text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-cyan-300 hover:border-blue-400 dark:hover:border-cyan-400/50 hover:scale-105 active:scale-95 transition-all duration-200 whitespace-nowrap shadow-sm">
+            #{{ . }}
+          </a>
+          {{ end }}
+          {{/* Duplicated set for seamless loop */}}
+          {{ range $trendingTags }}
+          <a href="/tags/{{ . | urlize }}/"
+            class="shrink-0 px-3 py-1.5 sm:px-4 sm:py-2 text-[11px] sm:text-xs md:text-sm font-medium rounded-full glass-pill text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-cyan-300 hover:border-blue-400 dark:hover:border-cyan-400/50 hover:scale-105 active:scale-95 transition-all duration-200 whitespace-nowrap shadow-sm"
+            aria-hidden="true" tabindex="-1">
+            #{{ . }}
+          </a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -24,11 +24,16 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace']
+                        mono: ['JetBrains Mono', 'monospace'],
+                        display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif']
                     },
                     animation: {
                         'fade-in': 'fadeIn 1s ease-in',
-                        'slide-up': 'slideUp 0.7s cubic-bezier(.39,.575,.565,1.000)'
+                        'slide-up': 'slideUp 0.7s cubic-bezier(.39,.575,.565,1.000)',
+                        'pulse-glow': 'pulseGlow 5s ease-in-out infinite',
+                        'float-slow': 'floatSlow 8s ease-in-out infinite',
+                        'marquee': 'marquee 35s linear infinite',
+                        'bounce-subtle': 'bounceSubtle 2.2s ease-in-out infinite'
                     },
                     keyframes: {
                         fadeIn: {
@@ -38,6 +43,22 @@
                         slideUp: {
                             '0%': { transform: 'translateY(40px)', opacity: 0 },
                             '100%': { transform: 'translateY(0)', opacity: 1 }
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 0.35, transform: 'scale(1)' },
+                            '50%': { opacity: 0.7, transform: 'scale(1.08)' }
+                        },
+                        floatSlow: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-16px) rotate(2deg)' }
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' }
+                        },
+                        bounceSubtle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-6px)' }
                         }
                     }
                 }
@@ -48,16 +69,98 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts: Inter, JetBrains Mono & Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Custom Styles -->
     <style>
         html { font-family: 'Inter', system-ui, sans-serif; }
+        .font-display,
+        main h1, main h2, main h3, main h4, main h5, main h6,
+        article h1, article h2, article h3, article h4, article h5, article h6,
+        .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+            font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif !important;
+            letter-spacing: -0.02em;
+        }
+        body > header, body > footer {
+            font-family: 'Inter', system-ui, sans-serif !important;
+        }
+        body > footer h1, body > footer h2, body > footer h3, body > footer h4, body > footer h5, body > footer h6 {
+            font-family: 'Inter', system-ui, sans-serif !important;
+            letter-spacing: normal !important;
+        }
+
+        /* Modern Mesh Background */
+        .mesh-bg {
+            background-color: #070a12;
+            background-image:
+                radial-gradient(at 15% 15%, rgba(37, 99, 235, 0.22) 0px, transparent 48%),
+                radial-gradient(at 85% 12%, rgba(6, 182, 212, 0.18) 0px, transparent 48%),
+                radial-gradient(at 50% 82%, rgba(139, 92, 246, 0.16) 0px, transparent 52%),
+                radial-gradient(at 10% 90%, rgba(59, 130, 246, 0.12) 0px, transparent 45%);
+        }
+        html:not(.dark) .mesh-bg,
+        html[data-theme="light"] .mesh-bg {
+            background-color: #f8fafc;
+            background-image:
+                radial-gradient(at 15% 15%, rgba(37, 99, 235, 0.09) 0px, transparent 48%),
+                radial-gradient(at 85% 12%, rgba(6, 182, 212, 0.08) 0px, transparent 48%),
+                radial-gradient(at 50% 80%, rgba(168, 85, 247, 0.07) 0px, transparent 52%),
+                radial-gradient(at 10% 90%, rgba(59, 130, 246, 0.05) 0px, transparent 45%);
+        }
+
+        /* Tech Grid Overlay */
+        .tech-grid {
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+            background-size: 56px 56px;
+        }
+        html:not(.dark) .tech-grid,
+        html[data-theme="light"] .tech-grid {
+            background-image: linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+            background-size: 56px 56px;
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 45%, #c084fc 80%, #f472b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        html:not(.dark) .text-gradient,
+        html[data-theme="light"] .text-gradient {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #db2777 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glass Pill & Frosted Elements */
+        .glass-pill {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        html:not(.dark) .glass-pill,
+        html[data-theme="light"] .glass-pill {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Horizontal Edge Fade Mask for Marquee */
+        .mask-fade {
+            -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+        }
+
         .prose {
-            max-width: 65ch;
+            max-width: 100%;
             margin: 0 auto;
         }
         
@@ -78,18 +181,18 @@
             line-height: 1.75;
         }
         
-        .prose code {
+        .prose :not(pre) > code {
             background: rgb(243 244 246);
             padding: 0.125rem 0.25rem;
             border-radius: 0.25rem;
             font-size: 0.95em;
             color: rgb(17 24 39); /* dark text for inline code in light mode */
         }
-        .dark .prose code {
+        .dark .prose :not(pre) > code {
             background: rgb(55 65 81);
             color: rgb(243 244 246); /* light text for inline code in dark mode */
         }
-        .prose pre {
+        .prose > pre {
             background: rgb(17 24 39);
             color: rgb(243 244 246);
             padding: 1rem;
@@ -99,14 +202,11 @@
         }
         .prose pre code {
             background: transparent;
-            color: rgb(243 244 246);
+            color: inherit;
             padding: 0;
         }
-        .dark .prose pre {
+        .dark .prose > pre {
             background: rgb(17 24 39);
-            color: rgb(243 244 246);
-        }
-        .dark .prose pre code {
             color: rgb(243 244 246);
         }
         
@@ -162,7 +262,7 @@
 </head>
 <body>
     {{ partial "header.html" . }}
-    <main class="{{ if .IsHome }}min-h-screen{{ else }}pt-24 md:pt-28 min-h-screen{{ end }} relative z-10">
+    <main class="{{ if or .IsHome (eq .Layout "about") }}min-h-screen{{ else }}pt-24 md:pt-28 min-h-screen{{ end }} relative z-10">
         {{ block "main" . }}{{ end }}
     </main>
     {{ partial "footer.html" . }}
