@@ -28,7 +28,7 @@ tags:
   - Self-Hosted AI
   - Machine Learning
 thumbnail: /images/uploads/neon-local-ai-workstation-100kb-1-.jpeg
-readingTime: 10
+readingTime: 15
 draft: false
 ---
 # Local AI Explained: How to Run AI Models on Your Own Computer in 2026
