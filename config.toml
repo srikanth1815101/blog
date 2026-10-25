@@ -2,6 +2,9 @@ baseURL = "https://blog.csrgo.com/"
 languageCode = "en-us"
 title = "CSRGO Blog"
 
+[services.googleAnalytics]
+  id = "G-985YFQTWCK"
+
 [params]
   description = "Uncover AI Tools, Dev Roadmaps & Cutting-Edge Tech"
   author = "CSRGO"
